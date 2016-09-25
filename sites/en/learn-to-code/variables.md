@@ -1,16 +1,18 @@
-<!-- next_step "nil" -->
+<!-- next_step "the_command_line" -->
 
 # Variables
 
 A VARIABLE is a NAME for an object. You give an object a name using the ASSIGNMENT operator (it looks like an equal sign).
 
-    color = "blue"
-    fruit = "berry"
+    val color = "blue"
+    val fruit = "berry"
+
+The `val` keyword is necessary to give the object a name.
 
 Anywhere you can use an object, you can use a variable instead.
 
     color + fruit
-    fruit.upcase
+    fruit.toUpperCase
 
 # The Warehouse Metaphor
 
@@ -36,16 +38,16 @@ Which is clearer, this:
 
 or this:
 
-    seconds_per_minute = 60
-    minutes_per_hour = 60
-    hours_per_day = 24
-    seconds_per_day = seconds_per_minute * minutes_per_hour * hours_per_day
+    val secondsPerMinute = 60
+    val minutesPerHour = 60
+    val hoursPerDay = 24
+    val secondsPerDay = secondsPerMinute * minutesPerHour * hoursPerDay
 
 ?
 
-# Lab: Play In IRB
+# Lab: Play In The REPL
 
-Let's spend a few minutes just playing around in IRB. Some things to try:
+Let's spend a few minutes just playing around in the REPL. Some things to try:
 
 * write a poem
 * YELL THE POEM
@@ -56,29 +58,16 @@ Let's spend a few minutes just playing around in IRB. Some things to try:
 
 # The Pointer Metaphor
 
-    snack = "Apple"
+    val snack = "Apple"
 
 ![snack-apple](img/snack-apple.svg)
 
 Think of a variable as **pointing** to an object.
 
-# Changing Variables
-
-You can assign and reassign variables at will.
-
-    color = "blue"
-    fruit = "berry"
-    color + fruit
-    
-    color = "black"
-    color + fruit
-    
-Changing a variable (using ASSIGNMENT) just changes the name of an object. It does *not* change the data inside the object.
-
 # Many pointers can point to the same thing
 
-    fruit = "Apple"
-    snack = fruit
+    val fruit = "Apple"
+    val snack = fruit
 
 ![snack-fruit](img/snack-fruit.svg)
 
@@ -89,26 +78,12 @@ After this both `snack` and `fruit`...
 
 # Return values are new
 
-most messages return *new* values
+Most methods will return a *new* value
 
-    fruit = "banana"
-    snack = fruit.upcase
+    val fruit = "banana"
+    val snack = fruit.toUpperCase
 
 ![fruit-banana-snack-banana](img/fruit-banana-snack-banana.svg)
 
 `"banana"` and `"BANANA"` are two *different objects* in memory
-
-# Changing Values
-
-Most messages do not change the data inside the object.
-
-    color.upcase
-    color
-
-But some messages do change the data!
-    
-    color.upcase!
-    color
-
-This can be dangerous so sometimes those messages end with a BANG (exclamation point).
 

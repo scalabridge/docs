@@ -8,15 +8,21 @@ A LOOP is when we ask a program to do something many times.
 
 # loop
 
-If you want something to keep going forever, use a special loop called `loop`.
+If you want something to keep going forever, use a special loop called a `while` loop.
 
-    loop do
-      puts "Hello"
-    end
+    while (true) {
+      println("Hello")
+    }
+
+* The `while` statement keeps checking the expression
+
+  * if it's `true` then it loops back
+  * if it's `false` then it stops looping and goes on to the rest of the program
 
 To stop it, hold down the CONTROL key and press the C key.
 
-**Note well!** The lines between `do` and `end` are INDENTED. Indentation is very important to you and other humans. It lets our eyes follow the patterns and helps us quickly see what parts of the program go with each other.
+**Note well!** The lines between `{` and `}` are INDENTED. Indentation is very important to you and other humans. It lets our eyes follow the patterns and helps us quickly see what parts of the program go with each other.
+
 
 # One Infinite Loop
 
@@ -31,17 +37,17 @@ To stop it, hold down the CONTROL key and press the C key.
 
 # LAB: Infinite Hello
 
-Let's change `hello.rb` so that it keeps saying hello over and over again.
+Let's change `hello.scala` so that it keeps saying hello over and over again.
 
-    loop do
-      puts "What is your name?"
-      name = gets.strip
-      puts "Hello, " + name + "!"
-    end
+    while (true) {
+      println("What is your name?")
+      val name = readLine()
+      println("Hello, " + name + "!")
+    }
 
 # LAB: Infinite Food
 
-Write a program called `food.rb` that
+Write a program called `food.scala` that
 
 1. asks the user for a food -- say, "pizza"
 2. prints "Yum, I love pizza!"
@@ -49,50 +55,94 @@ Write a program called `food.rb` that
 
 Remember, CONTROL-C means "Stop everything!!!"
 
+
 # Who wants to loop forever?
 
-Next, we will change your `food.rb` program so that if the user types "return" -- meaning the string is empty -- then the program exits.
+Next, we will change your `food.scala` program so that if the user types "return" -- meaning the string is empty -- then the program exits.
 
-Please try this yourself! But it's kind of tricky, so on the next slide I'll show you one solution.
+# Exiting a Loop
 
-# Exiting a Loop with break
+Our `while` loop assumes that the condition is `true`. This is a keyword that will -- you guessed it -- always be true.
+If we want to exit the loop when the input is empty, we'll have to change the condition.
 
-The magic word `break` stops a loop immediately.
+We can use a variable to do this! But first we have to introduce a new concept...
 
-    loop do
-      puts "What is your name?"
-      name = gets.strip
-      break if name.empty?
-      puts "Hello, " + name + "!"
-    end
+# `val` vs `var`
 
-The magic word `break` means "stop the current loop". It's less dangerous -- but still kind of weird, since it's not always clear which loop you mean.
+So far we've been using the keyword `val` to indicate a variable. It's called `val` because
+it's short for "value", which means that it can never change.
+
+If you want a variable that can change, you can signal that by using the keyword `var`
+
+**NOTE** The REPL let's you change `val`, try it yourself:
+
+    val x = "foo"
+    val x = "bar"
+
+This works just fine! **BUT!** The REPL is a special case, and most of the time you'll be code from source files.
+Try putting the below code in a new source file named `test.scala` and running it:
+
+File contents:
+
+    object TestingThis extends App {
+      val x = "foo"
+      val x = "bar"
+      println(x)
+    }
+
+Now run:
+
+    scalac test.scala
+
+What happens?
+
+    test.scala:6: error: x is already defined as value x
+      val x = "bar"
+        ^
+    one error found
+
+## Why `val`
+
+When you set something to a value it never changes, this is kind of nice to know! In some ways,
+it makes your programs simpler, you know that once you set `val color = "blue"`, color will always be blue!
+
+Being able to change a variable is useful in a handful of situations, loops being one.
+
+## Using `var`
+
+You can initialize a variable in the same way you would for `val`:
+
+    var x = "foo"
+
+To reassign it, leave off the `var` keyword:
+
+    x = "bar"
+
+Now try rewriting `test.scala` with vars so you can change the value of x!
 
 # LAB: Exiting a Loop
 
-Change your `food.rb` program so that if the user types "return" -- meaning the string is empty -- then the program exits.
+Change your `food.scala` program so that if the user types "return" -- meaning the string is empty -- then the program exits.
+
+Hint: Use a `var` to replace the condition in your while loop.
 
 # LAB: Good Food, Bad Food
 
-* Change `food.rb` so that it doesn't love every food.
+* Change `food.scala` so that it doesn't love every food.
 * If it's a food you like (let's say, pizza), make it print "Yum! I love pizza."
 * If it's a food you like (let's say, cabbage), make it print "Yuck! I hate cabbage."
 
-# times
+# For loops
 
-Another loop in Ruby is called `times`, and it's a message you can send to a number.
+Another loop is called `for`, and it's used to loop over a fixed range.
 
-Try this in IRB:
+Try this in the REPL:
 
-    3.times do
-      puts "Hip! Hip! Hooray!"
-    end
+    for (count <- (1 to 3)) println("Hip! Hip! Hooray!")
 
 Let's unpack this:
 
-* `3.times do` means what it sounds like: "do this three times"
-* `end` means this is the end of what I want you to do
-* and of course, `puts` means "show this on the terminal"
+* `1 to 3` means that we'll loop over numbers 1, 2, and 3
 
 # Counting in a loop
 
@@ -109,77 +159,46 @@ Remember this poem?
 
 We're going to examine a few different ways to code this.
 
-# `times` with a counter
+# `for` with a counter
 
 Try this:
 
-    4.times do |count|
-      puts count.to_s + " potato"
-    end
+    for (count <- (1 to 4)) {
+      println(count.toString + " potato")
+    }
 
-`|count|` means
+`count` means
 
 > "the `count` variable points to the current value of the counter"
 
-# `times` output
 
-    0 potato
-    1 potato
-    2 potato
-    3 potato
-    4
+# `while` with a counter
 
-Whoops! What's wrong?
-
-# `times` with a counter -- fixed
-
-    4.times do |count|
-      puts (count+1).to_s + " potato"
-    end
-
-# `loop` with a counter
-
-    count = 1
-    loop do
-      puts count.to_s + " potato"
+    var count = 1
+    while(true) {
+      println(count.toString + " potato")
       count = count + 1
-    end
+    }
 
 Whoops! Hit Control-C and join me on the next slide...
 
-# `loop` with a counter -- fixed
+# `while` with a counter -- fixed
 
-    count = 1
-    loop do
-      puts count.to_s + " potato"
-      count = count + 1
-      break if count > 4
-    end
-
-# `while`
-
-The magic word `while` combines `loop` and `break`.
-
-    count = 1
-    while count <= 4
-      puts count.to_s + " potato"
+    var count = 1
+    while(count <= 4) do
+      println(count.toString + " potato")
       count = count + 1
     end
-
-* The `while` statement keeps checking the expression
-
-  * if it's `true` then it loops back
-  * if it's `false` then it stops looping and goes on to the rest of the program
 
 This is fairly complicated, so let's stop here and make sure to understand everything that's happening in this little program.
 
 # `while` breakdown (pt.1)
 
-    count = 1
+    var count = 1
 
 creates a *variable* named `count` and sets its value to `1`.
 
-    while count <= 4
+    while (count <= 4)
 
 starts a loop and immediately compares `count` to `4`.
 
@@ -187,7 +206,7 @@ starts a loop and immediately compares `count` to `4`.
 
 # `while` breakdown (pt.2)
 
-      puts count.to_s + " potato"
+      println(count.toString + " potato")
 
 prints the current value of count (and the word "potato").
 
@@ -195,13 +214,11 @@ prints the current value of count (and the word "potato").
 
 *increments* the `count` variable... it was `1`, so now it's `2`
 
-    end
-
-goes *back to the `while` line* and checks again
+That's all - now it goes *back to the `while` line* and checks again
 
 # `while` breakdown (pt.2)
 
-    while count <= 4
+    while (count <= 4)
 
 compares `count` to `4`.
 
@@ -211,15 +228,16 @@ Eventually, `count` becomes `5`, and the `while` expression is `false`, and so w
 
 # LAB: One Potato
 
-Write a program called `potato.rb` that prints the entire potato poem, accurately.
+Write a program called `potato.scala` that prints the entire potato poem, accurately.
 
 # Lab: Adder
 
-Write a program named `adder.rb` that keeps a *running total*.
+Write a program named `adder.scala` that keeps a *running total*.
 
 For example:
 
-    ruby adder.rb
+    scalac adder.scala
+    scala ScalaAdder
     1
     Total: 1
     2

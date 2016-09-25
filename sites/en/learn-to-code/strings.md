@@ -1,45 +1,45 @@
 <!-- next_step 'numbers' -->
 
-# String Messages
+# String Methods
 
-A string understands lots of messages. Here are a few:
+A string understands lots of methods. Here are a few:
 
-    "banana".upcase
-    "Cherry".downcase
+    "banana".toUpperCase
+    "Cherry".toLowerCase
     "titanic".capitalize
     "elderberry".reverse
     "fig".length
-    "Fig Newton".swapcase
-    "".empty?
+    "".isEmpty
     "syzygy".length
 
-Try all of these out in irb!
+Try all of these out in the Scala REPL!
 
-# String Operators
+# More methods
 
-A string knows DOT, but also understands several other operators:
+Methods on a string can be called with a `.`,
+but also supports several other "operators":
 
     "blue" + "berry"
     "yum" * 10
-    "elderberry"[8]
+    "elderberry"(8)
 
-`+` `*` and `[]` are pronounced PLUS, TIMES, and SUB
+`+` `*` are pronounced PLUS, TIMES
 
-Try these out in irb!
+Try these out in the Scala REPL!
 
-# Combining Messages and Operators
+# Combining methods
 
-You can combine messages and operators at will.
+You can combine methods at will.
 
-    "fig".upcase.reverse
+    "fig".toUpperCase.reverse
     "grape".reverse * 10 + "!!!"
 
-Definitely try these out in irb! It's pretty fun.
+Definitely try these out in the Scala REPL! It's pretty fun.
 
 # LAB: Playing With Strings
 
 * What is the reverse of "stressed"?
 * How many characters long is your name?
 * What does your name look like, repeated 1000 times?
-* What is the tenth character of "Matz is nice"? (Trick question!)
+* What is the tenth character of "Scala is fun"?
 

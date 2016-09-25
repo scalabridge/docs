@@ -84,7 +84,6 @@
 
 * source code is the essence of a program
 * source files are text files that contain source code
-* to RUN a program you type `ruby` and then the name of the source file
 
 * The Recipe Metaphor
   * source file = recipe
@@ -93,14 +92,9 @@
 # LAB: Hello, World
 
 1. Make sure you are in your `code` subdirectory using `pwd`
-2. Create a file named `hello.rb` using `touch hello.rb`
-3. Open `hello.rb` in your favorite text editor
-4. Inside this file, put the following source code:
-
-        puts "Hello, World!"
-
-5. Save the file 
-6. Go back to the terminal
-7. Run this file using `ruby hello.rb`
+2. Create a file named `hello.scala` using `touch hello.scala`
+3. Open `hello.scala` in your favorite text editor
+4. TODO rewrite this - short explanation of scalac and scala to run programs. Follow [the steps here](http://www.scala-lang.org/documentation/getting-started.html#your-first-lines-of-code) to write, compile, and execute the code from the file.
 
 What happens? Is this what you expected?
+

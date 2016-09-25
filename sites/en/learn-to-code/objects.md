@@ -4,17 +4,33 @@
 
 An OBJECT is a location in computer memory where you can store DATA (aka VALUES).
 
-There are many kinds of objects, including String, Number, Array, Hash, Time, ... 
+There are many kinds of objects, including String, Int, Double, List, Map... 
 
 (The different kinds of objects are called CLASSES or TYPES. Some day soon you will create your own classes but for now, we will use the built-in ones.)
 
-# Numbers
+# Int
 
-A NUMBER is what it sounds like.
+An `Int` is short for "Integer" which is a whole number.
 
     10
     -12
-    3.14
+    540698
+
+# Double
+
+A `Double` is a way to express numbers with decimals.
+
+    3.0
+    -1.23
+    4.89034851
+
+Try typing the above numbers into the REPL to see what result type comes back!
+    
+    scala> 3
+    res0: Int = 3
+
+    scala> -1.23
+    res1: Double = -1.23
 
 # Strings
 
@@ -24,58 +40,42 @@ A STRING is an object that's a collection of characters, like a word or a senten
     "banana"
     "Cherry Pie"
 
-# Messages and Operators
+# Lists
 
-An object responds to MESSAGES. You send it messages using OPERATORS.
+A List is an ordered collection of things, with the caveat that the things all must be the same type of thing.
 
-The most powerful operator is DOT. 
+    List(1, 2, 3, 4)
+    List("foo", "bar", "baz")
 
-On screen she looks like this...
+# Types
 
-    .
+In Scala, objects can have types. These types are very specific, which is why there's a difference between
+`Int` and `Double`. When you type something into the REPL, you see its type come back with the result.
 
-# Dot up close
+# Methods
 
-...but here's what she looks like up close:
+Methods allow you to perform actions on the objects.
 
-![picture of Dot the Operator](img/dot.jpg)
+    "apple".toUpperCase
 
-# Dot's job
+The `toUpperCase` method turns `"apple"` into `"APPLE"`.
 
-Dot can send any message she likes, by name, to any object.
+The type of the object determines which methods you can perform, try:
 
-    "apple".upcase
-
-The `upcase` message turns `"apple"` into `"APPLE"`.
-    
-# Other Operators
-
-There are other operators, like PLUS (`+`) and TIMES (`*`), but they only send one message each.
-
-And remember, Dot is more powerful than any other operator!
-
-    2 + 7
-
-is the same as
-
-    2.+ 7
-
-Both send the message `+` to the object `2`.
+    4.toUpperCase
 
 # Return Values
 
-Every time an object receives a message, it returns a response.
-
-The response is also called the VALUE or the RETURN VALUE.
+Every time a method is executed, it returns a response.
 
 You can think of it as the answer to a question. 
 
-    2 + 2    # Question: What is 2 + 2?
-    4        # Answer: 4
+    2 + 2          # Question: What is 2 + 2?
+    res0: Int = 4  # Answer: 4
 
-    "apple".upcase  
-    # Q: What is the upcase of the string "apple"?
+    "apple".toUpperCase  
+    # Q: What is the uppercase of the string "apple"?
     
-    "APPLE"         
+    res1: String = APPLE
     # A: the string "APPLE"
 

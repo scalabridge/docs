@@ -2,6 +2,8 @@
 
 # Numbers
 
+There are a lot of types that represent Numbers, we'll focus on `Int` and `Double`
+
 The following operations work on numbers:
 
   * + -- addition
@@ -9,11 +11,10 @@ The following operations work on numbers:
   * * -- multiplication
   * / -- division
   * % -- modulus
-  * ** -- exponentiation
 
 # LAB: Playing With Numbers
 
-Answer the following questions using irb:
+Answer the following questions using the Scala REPL:
 
 * How many seconds are in an hour?
 * How many minutes are in a week?
@@ -51,77 +52,29 @@ Hmmm again...
 
     "1" + 2
 
-Uh-oh!
+Huh?!
 
-    TypeError: can't convert Fixnum into String
+    res0: String = 12
 
-The problem is that Strings and Numbers are different TYPES, aka different CLASSES.
+It can't be both an `Int` and a `String`, so Scala converts the `Int` to a `String` in order to combine them.
 
-Don't panic! The solution is easy.
+You can do this too!
 
 # Type Conversion
 
-Numbers know a message that converts them into strings. `to_s` means "to string".
+There are methods to convert `Int` to `String` and back:
 
-    "1" + 2.to_s
+    14.toString
+    "14".toInt
+    "23.4".toDouble
+    "this isn't a number!!".toInt
 
-Likewise, strings know a message that converts them into numbers.
-
-    1 + "2".to_i
-
-`to_i` means "to integer".
-
-Try this in irb!
+Try these in the Scala REPL!
 
 # Advanced Number Theory (optional)
-
-# WTFixnum?
-
-The error said `can't convert Fixnum into String`.
-
-Q: What is a Fixnum?
-
-A: It's one type of number.
-
-# Math is hard
-
-There are many types of numbers!
-
-Each is useful in different situations.
-
-Without getting into too much detail, the two main number types in Ruby are:
-
-* `Fixnum` - for *integers* like 12 or -1023
-* `Float` - for *decimals* like 3.14
-
-(Other number types include Complex, Rational, and Bignum.)
-
-# Number to Number
-
-You can convert from one type of number to another by sending a message:
-
-* `to_i` turns a Float into a Fixnum
-* `to_f` turns a Fixnum into a Float
-
-Try this:
-
-    3.to_f
-    3.14.to_i
-
-# String to Number
-
-`to_f` and `to_i` also work on Strings:
-
-    "3.14".to_f
-    "3.14".to_i
-
-and `to_s` works on numbers:
-
-    3.14.to_s
-
 # Arithmetic
 
-Try this in irb:
+Try this in the REPL:
 
     1 + 2
     3 - 4
@@ -146,11 +99,11 @@ so the computer has to *round down* to 0
 
     7.0/8.0
 
-7.0 and 8.0 are *Floats*
+7.0 and 8.0 are *Doubles*
 
-so the result is a Float
+so the result is a `Double`
 
-and `0.875` can fit in a float
+and `0.875` can fit in a `Double`
 
 # Okay, that's enough math!
 

@@ -7,7 +7,6 @@ You may have never programmed before. Now you will.
 # What is coding?
 
 * coding = programming
-
 * ...thoughts?
 
 # What is coding NOT?
@@ -32,16 +31,13 @@ You may have never programmed before. Now you will.
 
 # What will we learn today?
 
-In this class, you will utilize Ruby to learn:
+In this class, you will utilize Scala to learn:
 
 *  The command line and why we use it
-*  Learn about Strings, Arrays, Variables, Objects, Loops, Files
+*  Learn about Strings, Lists, Variables, Objects, Loops, Files
 *  Object concepts like Methods
-
-*  How to run your Ruby code interactively (irb) or from a file
+*  How to run your Scala code interactively or from a file
 *  Make a very simple website run on your own computer
-
-Follow along at http://docs.railsbridge.org/learn-to-code
 
 # Go at your own pace
 
@@ -55,25 +51,19 @@ Follow along at http://docs.railsbridge.org/learn-to-code
 ## And if you and your pair finish early...
 
 * Let us know!
-* Start working on Ruby For Programmers lessons
-  * http://testfirst.org
-  * http://codelikethis.com/lessons
-* Build a Rails website
-  * http://docs.railsbridge.org/
+* Explore more [resources](https://github.com/scalabridge/curriculum/blob/master/resources.md)
 
 # Technical requirements
 
 * WIFI
   * Ask for SSID and password
-* a live Ruby installation
-  * e.g. http://railsinstaller.org -- click on the *BIG GREEN BUTTON*
-  * Ruby version 2.3 preferred, but 1.9+ is fine too
-    * run `ruby -v` to check
+* a Scala installation
+  * https://github.com/scalabridge/curriculum/tree/master/setup
+  * Scala version 2.11 is preferred. Run `scala -version` in a terminal window to check
 * a text editor
-  * e.g. Sublime Text 2
+  * e.g. Sublime Text 2 or Atom
   * http://www.sublimetext.com/2
-
-* If you do not have both of these things, RAISE YOUR HAND
-  * visit http://installfest.railsbridge.org for more instructions
+  * https://atom.io/
+* If you do not have these things, RAISE YOUR HAND and let a TA know!
 
 

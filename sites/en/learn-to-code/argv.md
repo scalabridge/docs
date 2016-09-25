@@ -1,51 +1,59 @@
 <!-- next_step "hashes" -->
 
-# ARGV
+# args
 
-There is a magic array named `ARGV`. 
+There's a magic list named `args`.
 
 It contains the *command line arguments* to the program.
 
 If the user types:
 
-    ruby hello.rb Alice Bob
+    scala hello.scala Alice Bob
 
-then ARGV contains:
+then args contains:
 
-    ["Alice", "Bob"]
-
-# Why ARGV?
-
-ARGV is a historical name. It means "Argument Vector" and has been around since the early 1970s.
+    List("Alice", "Bob")
 
 # Command-Line Hello
 
-Change `hello.rb` to contain:
+Change `hello.scala` to contain:
 
-    puts "Hello, " + ARGV[0]
+    println("Hello, " + args(0))
 
 and run it a few times, e.g.
 
-    ruby hello.rb Alice
+    scala hello.scala Alice
+
+try running it without providing an argument:
+
+    scala hello.scala
+
+oh no!
+
+    java.lang.ArrayIndexOutOfBoundsException: 0
+
+# LAB: Safe Hello
+
+Change `hello.scala` so it won't throw an exception if there isn't any input.
 
 # LAB: Hello, Everyone!
 
-Change `hello.rb` to say hello to *every one* of its command line arguments.
+Change `hello.scala` to say hello to *every one* of its command line arguments.
 
 For instance:
 
-    ruby hello.rb Alice Bob Charlie
+    scala hello.scala Alice Bob Charlie
     Hello, Alice!
     Hello, Bob!
     Hello, Charlie!
 
 # LAB: Add
 
-Write a program named `add.rb` that adds all of its command line arguments together.
+Write a program named `add.scala` that adds all of its command line arguments together.
 
 e.g.
 
-    ruby add.rb 1 2 3
+    scala add.scala 1 2 3
     6
 
 Do you remember how to convert a string to an integer?
